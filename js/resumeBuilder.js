@@ -117,5 +117,9 @@ for (job in work.jobs) {
   var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer); // Replaces %data% with employer from jobs object.
   var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title); // Replaces %data% with title from jobs object.
   var formattedEmployerTitle = formattedEmployer + formattedTitle;
+  var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+  var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
   $(".work-entry:last").append(formattedEmployerTitle);
+  $(".work-entry:last").append(formattedDates);
+  $(".work-entry:last").append(formattedDescription);
 }
