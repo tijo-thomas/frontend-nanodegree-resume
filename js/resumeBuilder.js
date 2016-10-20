@@ -92,6 +92,15 @@ var projects = {
         "https://images-na.ssl-images-amazon.com/images/I/71ytmRdg0%2BL._SL1280_.jpg",
         "https://s-media-cache-ak0.pinimg.com/originals/8d/67/01/8d6701ec5b19e54bac95d4346d00352c.jpg"
       ]
+    },
+    {
+      "title": "Sample Project 1",
+      "dates": "2014",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere doloremque obcaecati architecto ipsum numquam similique doloribus unde repudiandae saepe sit minima error, repellendus accusantium vel quam, nobis dolorem. Delectus, ullam.",
+      "images": [
+        "https://images-na.ssl-images-amazon.com/images/I/71ytmRdg0%2BL._SL1280_.jpg",
+        "https://s-media-cache-ak0.pinimg.com/originals/8d/67/01/8d6701ec5b19e54bac95d4346d00352c.jpg"
+      ]
     }
   ]
 }
@@ -112,7 +121,7 @@ if (bio.skills.length > 0) {
   $("#skills").append(formattedSkill);
 }
 
-work.jobs.forEach(function(job, index) {
+work.jobs.forEach(function(job) {
   $("#workExperience").append(HTMLworkStart); // Adds new div to html that will contain each work entry.
   var formattedEmployer = HTMLworkEmployer.replace("%data%", job.employer); // Replaces %data% with employer from jobs object.
   var formattedTitle = HTMLworkTitle.replace("%data%", job.title); // Replaces %data% with title from jobs object.
@@ -134,3 +143,20 @@ function inName() {
 }
 
 $("#main").append(internationalizeButton);
+
+projects.display = function() {
+  projects.projects.forEach(function(project) {
+    $("#projects").append(HTMLprojectStart);
+
+    var formattedTitle = HTMLprojectTitle.replace("%data%", project.title);
+    $(".project-entry:last").append(formattedTitle);
+
+    var formattedDates = HTMLprojectDates.replace("%data%",project.dates);
+    $(".project-entry:last").append(formattedDates);
+
+    var formattedDescription = HTMLprojectDescription.replace("%data%", project.description);
+    $(".project-entry:last").append(formattedDescription);
+  });
+}
+
+projects.display();
