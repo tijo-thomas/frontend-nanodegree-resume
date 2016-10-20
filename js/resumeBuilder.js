@@ -156,6 +156,14 @@ projects.display = function() {
 
     var formattedDescription = HTMLprojectDescription.replace("%data%", project.description);
     $(".project-entry:last").append(formattedDescription);
+
+    // Displays project images if there are any.
+    if (project.images.length > 0) {
+      project.images.forEach(function(image) {
+        var formattedImage = HTMLprojectImage.replace("%data%", image);
+        $(".project-entry:last").append(formattedImage);
+      });
+    }
   });
 }
 
