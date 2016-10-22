@@ -105,6 +105,10 @@ var projects = {
   ]
 }
 
+function appendingToRes(elementSelected, varToReplace, objectProp) {
+  $(elementSelected).append(varToReplace.replace("%data%", objectProp));
+}
+
 if (bio.skills.length > 0) {
   $("#header").append(HTMLskillsStart);
 
