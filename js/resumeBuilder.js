@@ -128,6 +128,7 @@ if (bio.skills.length > 0) {
   $("#skills").append(formattedSkill);
 }
 
+// Encapsulates work display function with dot notation.
 work.display = function() {
   work.jobs.forEach(function(job) {
     var formattedEmployerTitle = HTMLworkEmployer.replace("%data%", job.employer) + HTMLworkTitle.replace("%data%", job.title);
