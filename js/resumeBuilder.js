@@ -130,15 +130,12 @@ if (bio.skills.length > 0) {
 
 work.display = function() {
   work.jobs.forEach(function(job) {
+    var formattedEmployerTitle = HTMLworkEmployer.replace("%data%", job.employer) + HTMLworkTitle.replace("%data%", job.title);
     $("#workExperience").append(HTMLworkStart); // Adds new div to html that will contain each work entry.
-    var formattedEmployer = HTMLworkEmployer.replace("%data%", job.employer); // Replaces %data% with employer from jobs object.
-    var formattedTitle = HTMLworkTitle.replace("%data%", job.title); // Replaces %data% with title from jobs object.
-    var formattedEmployerTitle = formattedEmployer + formattedTitle;
-    var formattedDates = HTMLworkDates.replace("%data%", job.dates);
-    var formattedDescription = HTMLworkDescription.replace("%data%", job.description);
     $(".work-entry:last").append(formattedEmployerTitle);
-    $(".work-entry:last").append(formattedDates);
-    $(".work-entry:last").append(formattedDescription);
+    appendingToRes(".work-entry:last", HTMLworkDates, job.dates);
+    appendingToRes(".work-entry:last", HTMLworkLocation, job.location);
+    appendingToRes(".work-entry:last", HTMLworkDescription, job.description);
   });
 }
 
