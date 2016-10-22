@@ -70,12 +70,14 @@ var work = {
     {
       "employer": "Planet Express",
       "title": "Delivery Boy",
+      "location": "Chicago, IL",
       "dates": "January 3000 - Future",
       "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis sit corporis eum architecto dolore sed labore quam officiis, vero soluta! Error quod, optio adipisci nemo, molestias ratione suscipit itaque laborum."
     },
     {
       "employer": "Panucci's Pizza",
       "title": "Delivery Boy",
+      "location": "Arlington Heights, IL",
       "dates": "1998 - December 31, 1999",
       "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis, tempora aliquid aperiam aspernatur corporis beatae vitae qui. Reprehenderit deserunt beatae corporis excepturi, et molestiae omnis dicta eaque animi porro consectetur."
     }
@@ -138,14 +140,14 @@ work.jobs.forEach(function(job) {
   $(".work-entry:last").append(formattedDescription);
 });
 
-function inName() {
-  name = bio.name.trim().split(" ");
-  console.log(name);
-  name[1] = name[1].toUpperCase();
-  name[0] = name[0].slice(0, 1).toUpperCase() + name[0].slice(1).toLowerCase();
+// function inName() {
+//   name = bio.name.trim().split(" ");
+//   console.log(name);
+//   name[1] = name[1].toUpperCase();
+//   name[0] = name[0].slice(0, 1).toUpperCase() + name[0].slice(1).toLowerCase();
 
-  return name[0] + " " + name[1];
-}
+//   return name[0] + " " + name[1];
+// }
 
 // Encapsulates project display function with dot notation.
 projects.display = function() {
