@@ -140,15 +140,6 @@ work.display = function() {
   });
 }
 
-// function inName() {
-//   name = bio.name.trim().split(" ");
-//   console.log(name);
-//   name[1] = name[1].toUpperCase();
-//   name[0] = name[0].slice(0, 1).toUpperCase() + name[0].slice(1).toLowerCase();
-
-//   return name[0] + " " + name[1];
-// }
-
 // Encapsulates project display function with dot notation.
 projects.display = function() {
   projects.projects.forEach(function(project) {
