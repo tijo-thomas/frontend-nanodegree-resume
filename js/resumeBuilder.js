@@ -105,6 +105,7 @@ var projects = {
   ]
 }
 
+// Reduces appeding/replacing of html to one line of code.
 function appendingToRes(elementSelected, varToReplace, objectProp) {
   $(elementSelected).append(varToReplace.replace("%data%", objectProp));
 }
