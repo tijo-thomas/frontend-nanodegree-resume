@@ -158,7 +158,31 @@ projects.display = function() {
   });
 }
 
+// Encapsulates education display function with dot notation.
+education.display = function() {
+  education.schools.forEach(function(school) {
+    var formattedSchoolName = HTMLschoolName.replace("%data%", school.name) + HTMLschoolDegree.replace("%data%", school.degree);
+    $("#education").append(HTMLschoolStart); // Adds new div to html that will contain each work entry.
+
+    $(".education-entry:last").append(formattedSchoolName);
+    appendingToRes(".education-entry:last", HTMLschoolDates, school.dates);
+    appendingToRes(".education-entry:last", HTMLschoolLocation, school.location);
+    appendingToRes(".education-entry:last", HTMLschoolMajor, school.major);
+  });
+
+  $("#education").append(HTMLonlineClasses);
+  education.onlineCourses.forEach(function(course) {
+    $("#education").append(HTMLschoolStart);
+    var formattedTitleSchool = HTMLonlineTitle.replace("%data%", course.title) + HTMLonlineSchool.replace("%data%", course.school);
+
+    $(".education-entry:last").append(formattedTitleSchool);
+    appendingToRes(".education-entry:last", HTMLonlineDates, course.dates);
+    appendingToRes(".education-entry:last", HTMLonlineURL, course.url);
+  });
+}
+
 work.display();
 projects.display();
+education.display();
 
 $("#mapDiv").append(googleMap);
