@@ -147,26 +147,19 @@ function inName() {
   return name[0] + " " + name[1];
 }
 
-$("#main").append(internationalizeButton);
-
+// Encapsulates project display function with dot notation.
 projects.display = function() {
   projects.projects.forEach(function(project) {
     $("#projects").append(HTMLprojectStart);
 
-    var formattedTitle = HTMLprojectTitle.replace("%data%", project.title);
-    $(".project-entry:last").append(formattedTitle);
-
-    var formattedDates = HTMLprojectDates.replace("%data%",project.dates);
-    $(".project-entry:last").append(formattedDates);
-
-    var formattedDescription = HTMLprojectDescription.replace("%data%", project.description);
-    $(".project-entry:last").append(formattedDescription);
+    appendingToRes(".project-entry:last", HTMLprojectTitle, project.title);
+    appendingToRes(".project-entry:last", HTMLprojectDates, project.dates);
+    appendingToRes(".project-entry:last", HTMLprojectDescription, project.description);
 
     // Displays project images if there are any.
     if (project.images.length > 0) {
       project.images.forEach(function(image) {
-        var formattedImage = HTMLprojectImage.replace("%data%", image);
-        $(".project-entry:last").append(formattedImage);
+        appendingToRes(".project-entry:last", HTMLprojectImage, image);
       });
     }
   });
