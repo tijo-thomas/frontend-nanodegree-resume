@@ -29,11 +29,12 @@ var bio = {
     "email": "john@example.com",
     "github": "johndoe",
     "twitter": "@johndoe",
+    "blog": "www.myblog.com",
     "location": "San Francisco"
   },
   "welcomeMessage": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
   "skills": ["awesomeness", "delivering things", "cryogenic sleep", "saving the universe"],
-  "bioPic": "images/me.jpg"
+  "bioPic": "images/fry.jpg"
 }
 
 var education = {
@@ -107,25 +108,40 @@ var projects = {
   ]
 }
 
+// Reduces prepending/replacing of html to one line of code.
+function prependingToRes(elementSelected, varToReplace, objectProp) {
+  $(elementSelected).prepend(varToReplace.replace("%data%", objectProp));
+}
+
 // Reduces appeding/replacing of html to one line of code.
 function appendingToRes(elementSelected, varToReplace, objectProp) {
   $(elementSelected).append(varToReplace.replace("%data%", objectProp));
 }
 
-if (bio.skills.length > 0) {
-  $("#header").append(HTMLskillsStart);
+// Encapsulates bio display function with dot notation.
+bio.display = function() {
+  prependingToRes("#header", HTMLheaderRole, bio.role);
+  prependingToRes("#header", HTMLheaderName, bio.name);
+  appendingToRes("#topContacts", HTMLmobile, bio.contacts.mobile);
+  appendingToRes("#topContacts", HTMLemail, bio.contacts.email);
+  appendingToRes("#topContacts", HTMLtwitter, bio.contacts.twitter);
+  appendingToRes("#topContacts", HTMLgithub, bio.contacts.github);
+  appendingToRes("#topContacts", HTMLblog, bio.contacts.blog);
+  appendingToRes("#topContacts", HTMLlocation, bio.contacts.location);
+  appendingToRes("#footerContacts", HTMLmobile, bio.contacts.mobile);
+  appendingToRes("#footerContacts", HTMLemail, bio.contacts.email);
+  appendingToRes("#footerContacts", HTMLtwitter, bio.contacts.twitter);
+  appendingToRes("#footerContacts", HTMLgithub, bio.contacts.github);
+  appendingToRes("#footerContacts", HTMLblog, bio.contacts.blog);
+  appendingToRes("#footerContacts", HTMLlocation, bio.contacts.location);
+  appendingToRes("#header", HTMLbioPic, bio.bioPic);
+  appendingToRes("#header", HTMLwelcomeMsg, bio.welcomeMessage);
+  appendingToRes("#header", HTMLskillsStart);
 
-  var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
-  $("#skills").append(formattedSkill);
-
-  formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
-  $("#skills").append(formattedSkill);
-
-  formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
-  $("#skills").append(formattedSkill);
-
-  formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
-  $("#skills").append(formattedSkill);
+  // Appends each skill individually so they stack.
+  bio.skills.forEach(function(skill){
+    appendingToRes("#skills", HTMLskills, skill);
+  });
 }
 
 // Encapsulates work display function with dot notation.
@@ -181,6 +197,7 @@ education.display = function() {
   });
 }
 
+bio.display();
 work.display();
 projects.display();
 education.display();
