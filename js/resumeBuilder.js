@@ -1,26 +1,3 @@
-// Below is what was done throughout the Data Types lessons, on Udacity.
-
-
-// var formattedName = HTMLheaderName.replace("%data%", "Tijo Thomas");
-// var role = "Web Developer";
-// var formattedRole = HTMLheaderRole.replace("%data%", role);
-// var work = {};
-// work.position = "Course Developer";
-// work.employer = "Udacity";
-// work.years = 0.3;
-
-// $("#main").append(work["position"]);
-// $("#main").append(education.name);
-
-// $("#header").prepend(bio.bioPic);
-// $("#header").prepend(bio.skills);
-// $("#header").prepend(bio.welcomeMessage);
-// $("#header").prepend(bio.contacts);
-// $("#header").prepend(bio.role);
-// $("#header").prepend(bio.name);
-// $("#header").prepend(formattedRole);
-// $("#header").prepend(formattedName);
-
 var bio = {
   "name": "Tijo Thomas",
   "role": "Web Developer",
